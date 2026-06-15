@@ -1,0 +1,29 @@
+# Se le pedira ingresar valores como la edad en enteros "(int)", 
+# Un "str" preguntando si es socio o no, ademas del monto de de compra en decimales float en 2f.
+
+Edad = int(input("Ingrese su edad: "))
+tiene_tarjeta = input("Tiene tarjeta de socio? (si/no): ").lower()
+monto_compra = float(input("Ingrese el monto total de su compra: $"))
+
+# Luego se ejecutara la siguiente linea validando el dato, y el minimo de compra para obtener el beneficio
+
+cumple_requisito_cliente = (Edad > 60) or (tiene_tarjeta == "si")
+cumple_monto_minimo = monto_compra > 10000
+
+
+# Esta tabla imprimira en la terminal dependiendo de los datos obtenidos a la hora de preguntar
+# Existiendo 2 posibles caminos a la hora de imprimir el codigo, "usted participa por el 15% de descuento"
+# O "Usted no participa por el 15% de desuento" 
+
+
+print("\n--- Resultado del Beneficio ---")
+if cumple_monto_minimo and cumple_requisito_cliente:
+    descuento = monto_compra * 0.15
+    monto_final = monto_compra - descuento
+    print("Felicidades, usted califica para el descuento del 15%.")
+    print(f"Monto original: ${monto_compra:.2f}")
+    print(f"Descuento aplicado: ${descuento:.2f}")
+    print(f"Monto final a pagar: ${monto_final:.2f}")
+else:
+    print("Usted no califica para el descuento.")
+    print(f"Monto final a pagar: ${monto_compra:.2f}")
